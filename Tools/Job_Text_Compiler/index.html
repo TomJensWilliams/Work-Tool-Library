@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Job_Text_Compiler</title>
+    <style>
+      * {
+        margin: 0;
+      }
+      main {
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: aquamarine;
+      }
+      form {
+        border: 2px solid black;
+        padding: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Job Text Compiler</h1>
+      <form action="javascript:void(0);">
+        <!--  -->
+        <label for="jobnumber"
+          >Job Number:&nbsp;&nbsp;<input
+            type="number"
+            id="jobnumber"
+            name="jobnumber" /><br /><br
+        /></label>
+        <!--  -->
+        <label for="jobtype"
+          >Job Type:&nbsp;&nbsp;<input
+            list="jobtypes"
+            id="jobtype"
+            name="jobtype" /><datalist id="jobtypes">
+            <option value="Repair"></option>
+            <option value="Upgrade"></option>
+            <option value="vr"></option>
+            <option value="sc"></option></datalist></label
+        ><br /><br />
+        <!--  -->
+        <label for="jobcaw">
+          Caw met:&nbsp;&nbsp;<label for="cawyes"
+            ><input
+              type="radio"
+              id="cawyes"
+              name="jobcaw"
+              value="yes"
+            />Yes</label
+          >&nbsp;&nbsp;&nbsp;&nbsp;<label for="cawno"
+            ><input type="radio" id="cawno" name="jobcaw" value="no" />No</label
+          > </label
+        ><br /><br />
+        <!--  -->
+        <label for="jobip"
+          >IP Connected:<label for="ipyes"
+            ><input
+              type="radio"
+              id="ipyes"
+              name="jobip"
+              value="yes"
+            />Yes</label
+          >&nbsp;&nbsp;&nbsp;&nbsp;<label for="ipno"
+            ><input type="radio" id="ipno" name="jobip" value="no" />No</label
+          ></label
+        ><br /><br />
+        <!--  -->
+        <label for="jobcsat"
+          >CSAT Explained:&nbsp;&nbsp;<label for="csatyes"
+            ><input
+              type="radio"
+              id="csatyes"
+              name="jobcsat"
+              value="yes"
+            />Yes</label
+          >&nbsp;&nbsp;&nbsp;&nbsp;<label for="csatno"
+            ><input
+              type="radio"
+              id="csatno"
+              name="jobcsat"
+              value="no"
+            />No</label
+          ></label
+        ><br /><br />
+        <!--  -->
+        <input type="submit" id="submit" value="Submit" />
+      </form>
+      <h2>Output</h2>
+      <label for="jobsummary"
+        >Job Summary:<textarea
+          name="jobsummary"
+          id="jobsummary"
+          readonly
+        ></textarea>
+      </label>
+      <label for="copytext"
+        ><input
+          type="button"
+          id="copytext"
+          class="copytext"
+          name="copytext"
+          value="Copy Text"
+      /></label>
+    </main>
+    <script>
+      let jobNumber = document.querySelector('#jobnumber');
+      let jobType = document.querySelector('#jobtype');
+      let jobCAW = document.querySelectorAll('[name="jobcaw"]');
+      // let jobCAW = document.querySelector('#jobcaw');
+      let jobIP = document.querySelectorAll('[name="jobip"]');
+      // let jobIP = document.querySelector('#jobip');
+      let jobCSAT = document.querySelectorAll('[name="jobcsat"]');
+      // let jobCSAT = document.querySelector('#jobcsat');
+      //
+      let submit = document.querySelector('#submit');
+      let jobSummary = document.querySelector('#jobsummary');
+      // let copyText = document.querySelector('#copytext');
+      let copyText = document.querySelector('.copytext');
+
+      submit.addEventListener('click', function () {
+        // console.log(`${jobCAW}\n\n${jobIP}\n\n${jobCSAT}\n\n`);
+        jobNumberValue = jobNumber.value;
+        jobTypeValue = jobType.value;
+        jobCAWValue = null;
+        for (let index = 0; index < jobCAW.length; index++) {
+          if (jobCAW[index].checked) {
+            jobCAWValue = jobCAW[index].value;
+          }
+        }
+        // jobCAWValue = jobCAW.value;
+        jobIPValue = null;
+        for (let index = 0; index < jobIP.length; index++) {
+          if (jobIP[index].checked) {
+            jobIPValue = jobIP[index].value;
+          }
+        }
+        // jobIPValue = jobIP.value;
+        jobCSATValue = null;
+        for (index = 0; index < jobCSAT.length; index++) {
+          if (jobCSAT[index].checked) {
+            jobCSATValue = jobCSAT[index].value;
+          }
+        }
+        // jobCSATValue = jobCSAT.value;
+        /*console.log(
+          `jobNumberValue: ${jobNumberValue}\njobTypeValue: ${jobTypeValue}\njobCawValue: ${jobCAWValue}\njobIPValue: ${jobIPValue}\njobCSATValue: ${jobCSATValue}`
+        );*/
+        jobSummaryValue = `Job ${jobNumberValue}\n${jobTypeValue}\nCAW${
+          jobCAWValue == 'no' ? ' not' : ''
+        } met\nIP${jobIPValue == 'no' ? ' not' : ''} connected\nCSAT${
+          jobCSATValue == 'no' ? ' not' : ''
+        } explained\n`;
+        jobSummary.innerHTML = jobSummaryValue;
+      });
+
+      copyText.addEventListener('click', function () {
+        jobSummary.select();
+        document.execCommand('copy');
+      });
+    </script>
+  </body>
+</html>
