@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style></style>
+    <title>Document</title>
+  </head>
+  <body>
+    <main>
+      <h1>Job Summarizer</h1>
+      <form id="input-area" action="javascript:void(0);">
+        <!-- Job Number -->
+        <label for="job-number"
+          >Job Number:&nbsp;&nbsp;
+          <input
+            type="number"
+            id="job-number"
+            name="job-number"
+            min="1"
+            max="99"
+          />
+        </label>
+        <br />
+        <br />
+
+        <!-- Job Type -->
+        <label for="job-type"
+          >Job Type:&nbsp;&nbsp;
+          <label for="job-type-custom-labor">
+            <input
+              type="radio"
+              id="job-type-custom-labor"
+              name="job-type"
+              value="Custum Labor"
+            />Custom Labor&nbsp;&nbsp;
+          </label>
+          <label for="job-type-mover"
+            ><input
+              type="radio"
+              id="job-type-mover"
+              name="job-type"
+              value="Mover"
+            />Mover&nbsp;&nbsp;</label
+          >
+          <label for="job-type-new-connection"
+            ><input
+              type="radio"
+              id="job-type-new-connection"
+              name="job-type"
+              value="New Connection"
+            />New Connection&nbsp;&nbsp;</label
+          >
+          <label for="job-type-quality-control"
+            ><input
+              type="radio"
+              id="job-type-quality-control"
+              name="job-type"
+              value="Quality Control"
+            />Quality Control&nbsp;&nbsp;</label
+          >
+          <label for="job-type-repair"
+            ><input
+              type="radio"
+              id="job-type-repair"
+              name="job-type"
+              value="Repair"
+            />Repair&nbsp;&nbsp;</label
+          >
+          <label for="job-type-service-call"
+            ><input
+              type="radio"
+              id="job-type-service-call"
+              name="job-type"
+              value="Service Call"
+            />Service Call&nbsp;&nbsp;</label
+          >
+          <label for="job-type-trouble-call"
+            ><input
+              type="radio"
+              id="job-type-trouble-call"
+              name="job-type"
+              value="Trouble Call"
+            />Trouble Call&nbsp;&nbsp;</label
+          >
+          <label for="job-type-upgrade"
+            ><input
+              type="radio"
+              id="job-type-upgrade"
+              name="job-type"
+              value="Upgrade"
+            />Upgrade&nbsp;&nbsp;</label
+          >
+          <label for="job-type-video-repair"
+            ><input
+              type="radio"
+              id="job-type-video-repair"
+              name="job-type"
+              value="Video Repair"
+            />Video Repair&nbsp;&nbsp;</label
+          >
+          <label for="job-type-other"
+            ><input
+              type="radio"
+              id="job-type-other"
+              name="job-type"
+              value="Other"
+            />Other&nbsp;&nbsp;</label
+          >
+          <label for="job-type-other-input"
+            ><input
+              type="text"
+              id="job-type-other-input"
+              name="job-type-other-input"
+              style="display: none"
+          /></label>
+        </label>
+        <br />
+        <br />
+
+        <!-- CAW Met -->
+        <label for="job-caw"
+          >CAW Met:&nbsp;&nbsp;
+          <label for="job-caw-yes"
+            ><input
+              type="radio"
+              id="job-caw-yes"
+              name="job-caw"
+              value="Yes"
+            />Yes&nbsp;&nbsp;</label
+          >
+          <label for="job-caw-no"
+            ><input
+              type="radio"
+              id="job-caw-no"
+              name="job-caw"
+              value="No"
+            />No&nbsp;&nbsp;</label
+          >
+          <label for="job-caw-other-input"
+            ><input
+              type="text"
+              id="job-caw-no-input"
+              name="job-caw-other-input"
+              style="display: none"
+          /></label>
+        </label>
+        <br />
+        <br />
+
+        <!-- SHS -->
+        <label for="job-shs"
+          >SHS:
+          <label for="job-shs-yes"
+            ><input
+              type="radio"
+              id="job-shs-yes"
+              name="job-shs"
+              value="Yes"
+            />Yes&nbsp;&nbsp;</label
+          >
+          <label for="job-shs-yes-input"
+            ><input
+              type="text"
+              id="job-shs-yes-input"
+              name="job-shs-yes-input"
+              placeholder="SHS value and items"
+              style="display: none"
+          /></label>
+          <label for="job-shs-no"
+            ><input
+              type="radio"
+              id="job-shs-no"
+              name="job-shs"
+              value="No"
+            />No&nbsp;&nbsp;</label
+          >
+        </label>
+        <br />
+        <br />
+
+        <!-- SHS Details -->
+        <label for="job-shs-details"
+          >SHS Details:&nbsp;&nbsp;
+          <label for="job-shs-details-adt"
+            ><input
+              type="checkbox"
+              id="job-shs-details-adt"
+              name="job-shs-details-adt"
+              value="ADT"
+            />ADT&nbsp;&nbsp;</label
+          >
+          <label for="job-shs-details-atnt"
+            ><input
+              type="checkbox"
+              id="job-shs-details-atnt"
+              name="job-shs-details-atnt"
+              value="AT&T"
+            />AT&amp;T&nbsp;&nbsp;</label
+          >
+          <label for="job-shs-details-boost"
+            ><input
+              type="checkbox"
+              id="job-shs-details-boost"
+              name="job-shs-details-boost"
+              value="Boost"
+            />Boost&nbsp;&nbsp;</label
+          >
+          <label for="job-shs-details-hdmi"
+            ><input
+              type="checkbox"
+              id="job-shs-details-hdmi"
+              name="job-shs-details-hdmi"
+              value="HDMI"
+            />HDMI&nbsp;&nbsp;</label
+          >
+          <label for="job-shs-details-hughes"
+            ><input
+              type="checkbox"
+              id="job-shs-details-hughes"
+              name="joh-shs-details-hughes"
+              value="Hughes"
+            />Hughes&nbsp;&nbsp;</label
+          >
+          <label for="job-shs-details-polk"
+            ><input
+              type="checkbox"
+              id="job-shs-details-polk"
+              name="job-shs-details-polk"
+              value="Polk"
+            />Polk&nbsp;&nbsp;</label
+          >
+          <label for="job-shs-details-surge"
+            ><input
+              type="checkbox"
+              id="job-shs-details-surge"
+              name="job-shs-details-surge"
+              value="Surge"
+            />Surge&nbsp;&nbsp;</label
+          >
+          <label for="job-shs-details-other"
+            ><input
+              type="checkbox"
+              id="job-shs-details-other"
+              name="job-shs-details-other"
+              value="Other"
+            />Other&nbsp;&nbsp;</label
+          >
+          <label for="job-shs-details-other-input"
+            ><input
+              type="text"
+              id="job-shs-details-other-input"
+              name="job-shs-details-other-input"
+              style="display: none"
+          /></label>
+        </label>
+        <br />
+        <br />
+
+        <!-- IP Connected -->
+        <label for="job-ip"
+          >IP Connected:&nbsp;&nbsp;
+          <label for="job-ip-yes"
+            ><input
+              type="radio"
+              id="job-ip-yes"
+              name="job-ip"
+              value="Yes"
+            />Yes&nbsp;&nbsp;</label
+          >
+          <label for="job-ip-no"
+            ><input
+              type="radio"
+              id="job-ip-no"
+              name="job-ip"
+              value="No"
+            />No&nbsp;&nbsp;</label
+          >
+          <label for="job-ip-no-input"
+            ><input type="text" id="job-ip-no-input"
+          /></label>
+        </label>
+        <br />
+        <br />
+
+        <!-- STBH -->
+        <label for="job-stbh"
+          >STBH Ran:&nbsp;&nbsp;
+          <label for="job-stbh-yes"
+            ><input
+              type="radio"
+              id="job-stbh-yes"
+              name="job-stbh"
+              value="Yes"
+            />Yes&nbsp;&nbsp;</label
+          >
+          <label for="job-stbh-no"
+            ><input
+              type="radio"
+              id="job-stbh-no"
+              name="job-stbh"
+              value="No"
+            />No&nbsp;&nbsp;</label
+          >
+          <label for="job-stbh-no-input"
+            ><input type="text" id="job-sthb-no-input" name="job-stbh-no-input"
+          /></label>
+        </label>
+        <br />
+        <br />
+
+        <!-- CSAT Explained -->
+        <label for="job-csat"
+          >CSAT Explained:&nbsp;&nbsp;
+          <label for="job-csat-yes"
+            ><input
+              type="radio"
+              id="job-csat-yes"
+              name="job-csat"
+              value="Yes"
+            />Yes&nbsp;&nbsp;</label
+          >
+          <label for="job-csat-no"
+            ><input
+              type="radio"
+              id="job-csat-no"
+              name="job-csat"
+              value="No"
+            />No&nbsp;&nbsp;</label
+          >
+          <label for="job-csat-no-input"
+            ><input type="text" id="job-csat-no-input" name="job-csat-no-input"
+          /></label>
+        </label>
+        <br />
+        <br />
+
+        <!-- Reconciled -->
+        <label for="job-reconciled"
+          >Reconciled:&nbsp;&nbsp;
+          <label for="job-reconciled-yes"
+            ><input
+              type="radio"
+              id="job-reconciled-yes"
+              name="job-reconciled"
+              value="Yes"
+            />Yes&nbsp;&nbsp;</label
+          >
+          <label for="job-reconciled-no"
+            ><input
+              type="radio"
+              id="job-reconciled-no"
+              name="job-reconciled"
+              value="No"
+            />No&nbsp;&nbsp;</label
+          >
+          <label for="job-reconciled-no-input"
+            ><input
+              type="text"
+              id="job-reconciled-no-input"
+              name="job-reconciled-no-input"
+          /></label>
+        </label>
+        <br />
+        <br />
+
+        <!-- IP / STBH Files -->
+        <label for="job-ip-stbh-files"
+          >IP And STBH Pictures:
+          <input
+            type="file"
+            id="job-ip-stbh-files"
+            name="job-ip-stbh-files"
+            multiple
+          />
+        </label>
+        <br />
+        <br />
+
+        <!-- Notes -->
+        <label for="job-notes"
+          >Notes:&nbsp;&nbsp;<input type="text" id="job-notes" name="job-notes"
+        /></label>
+        <br />
+        <br />
+
+        <!-- Other -->
+        <label for="job-other"
+          >Other:&nbsp;&nbsp;<input type="text" id="job-other" name="job-other"
+        /></label>
+        <br />
+        <br />
+
+        <!-- Pictures -->
+        <label for="job-pictures"
+          >Other Pictures&nbsp;&nbsp;<input
+            type="file"
+            id="job-pictures"
+            name="job-pictures"
+            multiple
+        /></label>
+        <br />
+        <br />
+
+        <!-- Other Files -->
+        <label for="job-other-files"
+          >Other Files:&nbsp;&nbsp;<input
+            type="file"
+            id="job-other-files"
+            name="job-other-files"
+            multiple
+        /></label>
+        <br />
+        <br />
+
+        <!-- Anything Else -->
+        <label for="job-anything-else"
+          >Anything Else:&nbsp;&nbsp;<input
+            type="text"
+            id="job-anything-else"
+            name="job-anything-else"
+        /></label>
+        <br />
+        <br />
+
+        <input type="submit" id="submit-button" value="Submit" />
+      </form>
+    </main>
+    <!--
+        ### Job Number: Number 
+        ### Job Type: Radio => Alternative
+        ### CAW: Radio => Alternative
+        ### SHS: Radio => Alternative
+        ### Details: Checkbox => Additional
+        ---
+        ## IP: Radio => Alternative
+        # STBH: Radio => Alternatice
+        # SAT: Radio => Alternative
+        # Reconciled: Radio => Alternative
+        # IP / STBH Files: File, Multiple
+        ---
+        # Notes: Text
+        # Other: Text
+        # Pictures: File, Multiple
+        # Other Files: File, Multiple
+        # Anything Else: Text
+    -->
+    <script>
+      // Job Number:
+      const jobNumber = document.querySelector('#job-number');
+
+      // Job Type:
+      const jobTypeCustomLabor = document.querySelector(
+        '#job-type-custom-labor'
+      );
+      const jobTypeMover = document.querySelector('#job-type-mover');
+      const jobTypeNewConnection = document.querySelector(
+        '#job-type-new-connection'
+      );
+      const jobTypeQualityControl = document.querySelector(
+        '#job-type-quality-control'
+      );
+      const jobTypeRepair = document.querySelector('#job-type-repair');
+      const jobTypeServiceCall = document.querySelector(
+        '#job-type-service-call'
+      );
+      const jobTypeTroubleCall = document.querySelector(
+        '#job-type-trouble-call'
+      );
+      const jobTypeUpgrade = document.querySelector('#job-type-upgrade');
+      const jobTypeVideoRepair = document.querySelector(
+        '#job-type-video-repair'
+      );
+      const jobTypeOther = document.querySelector('#job-type-other');
+      const jobTypeOtherInput = document.querySelector('#job-type-other-input');
+
+      // CAW Met:
+      const jobCAWYes = document.querySelector('#job-caw-yes');
+      const jobCAWNo = document.querySelector('#job-caw-no');
+      const jobCAWNoInput = document.querySelector('#job-caw-no-input');
+
+      // SHS:
+      const jobSHSYes = document.querySelector('#job-shs-yes');
+      const jobSHSNo = document.querySelector('#job-shs-no');
+      const jobSHSYesInput = document.querySelector('#job-shs-yes-input');
+
+      // SHS Details:
+      const jobSHSDetailsADT = document.querySelector('#job-shs-details-adt');
+      const jobSHSDetailsATNT = document.querySelector('#job-shs-details-atnt');
+      const jobSHSDetailsBoost = document.querySelector(
+        '#job-shs-details-boost'
+      );
+      const jobSHSDetailsHDMI = document.querySelector('#job-shs-details-hdmi');
+      const jobSHSDetailsHughes = document.querySelector(
+        '#job-shs-details-hughes'
+      );
+      const jobSHSDetailsPolk = document.querySelector('#job-shs-details-polk');
+      const jobSHSDetailsSurge = document.querySelector(
+        '#job-shs-details-surge'
+      );
+      const jobSHSDetailsOther = document.querySelector(
+        '#job-shs-details-other'
+      );
+      const jobSHSDetailsOtherInput = document.querySelector(
+        '#job-shs-details-other-input'
+      );
+
+      //...
+      const jobIPYes = document.querySelector('#job-ip-yes');
+      const jobIPNo = document.querySelector('#job-ip-no');
+      const jobIPNoInput = document.querySelector('#job-ip-no-input');
+      //...
+
+      const jobTypes = [
+        jobTypeCustomLabor,
+        jobTypeMover,
+        jobTypeNewConnection,
+        jobTypeQualityControl,
+        jobTypeRepair,
+        jobTypeServiceCall,
+        jobTypeTroubleCall,
+        jobTypeUpgrade,
+        jobTypeVideoRepair,
+        jobTypeOther,
+      ];
+      const jobCAWs = [jobCAWYes, jobCAWNo];
+      const jobSHSs = [jobSHSYes, jobSHSNo];
+      const jobSHSDetails = [
+        jobSHSDetailsADT,
+        jobSHSDetailsATNT,
+        jobSHSDetailsBoost,
+        jobSHSDetailsHDMI,
+        jobSHSDetailsHughes,
+        jobSHSDetailsPolk,
+        jobSHSDetailsSurge,
+        jobSHSDetailsOther,
+      ];
+      const jobIPs = [jobIPYes, jobIPNo];
+      //...
+      const submitButton = document.querySelector('#submit-button');
+
+      function jobTypeOtherInputToggle() {
+        if (
+          document.querySelector('input[name="job-type"]:checked').value ===
+          'Other'
+        ) {
+          jobTypeOtherInput.style.display = '';
+        } else {
+          jobTypeOtherInput.style.display = 'none';
+        }
+      }
+      function jobCAWNoInputToggle() {
+        if (
+          document.querySelector('input[name="job-caw"]:checked').value === 'No'
+        ) {
+          jobCAWNoInput.style.display = '';
+        } else {
+          jobCAWNoInput.style.display = 'none';
+        }
+      }
+      function jobSHSYesInputToggle() {
+        if (
+          document.querySelector('input[name="job-shs"]:checked').value ===
+          'Yes'
+        ) {
+          jobSHSYesInput.style.display = '';
+        } else {
+          jobSHSYesInput.style.display = 'none';
+        }
+      }
+      function jobSHSDetailsOtherInputToggle() {
+        jobSHSDetailsOtherInput.style.display =
+          jobSHSDetailsOtherInput.style.display === 'none' ? '' : 'none';
+      }
+      function jobIPNoInputToggle() {
+        if (
+          document.querySelector('input[name="job-ip"]:checked').value === 'No'
+        ) {
+          jobIPNoInput.style.display = '';
+        } else {
+          jobIPNoInput.style.display = 'none';
+        }
+      }
+      //...
+
+      for (let index = 0; index < jobTypes.length; index++) {
+        jobTypes[index].addEventListener('click', jobTypeOtherInputToggle);
+      }
+      for (let index = 0; index < jobCAWs.length; index++) {
+        jobCAWs[index].addEventListener('click', jobCAWNoInputToggle);
+      }
+      for (let index = 0; index < jobSHSs.length; index++) {
+        jobSHSs[index].addEventListener('click', jobSHSYesInputToggle);
+      }
+      jobSHSDetailsOther.addEventListener(
+        'click',
+        jobSHSDetailsOtherInputToggle
+      );
+      for (let index = 0; index < jobIPs.length; index++) {
+        jobIPs[index].addEventListener('click', jobIPNoInputToggle);
+      }
+      //...
+
+      function createOutputText() {
+        // Job Number:
+        output = `Job ${jobNumber.value} Complete\n`;
+
+        // Job Type:
+        const jobTypeRadioButtonValue = document.querySelector(
+          'input[name="job-type"]:checked'
+        ).value;
+        if (jobTypeRadioButtonValue === 'Other') {
+          output += `${jobTypeOtherInput.value}\n`;
+        } else {
+          output += `${jobTypeRadioButtonValue}\n`;
+        }
+
+        // CAW Met:
+        if (
+          document.querySelector('input[name="job-caw"]:checked').value ===
+          'Yes'
+        ) {
+          output += `CAW Met\n`;
+        } else {
+          output += `CAW Not Met, ${jobCAWNoInput.value}\n`;
+        }
+
+        // SHS:
+        if (
+          document.querySelector('input[name="job-shs"]:checked').value ===
+          'Yes'
+        ) {
+          output += `SHS ${jobSHSYesInput.value}\n`;
+        } else {
+          output += `SHS No\n`;
+        }
+
+        // SHS Details:
+        const shsDetailsArray = [];
+        for (let index = 0; index < jobSHSDetails.length; index++) {
+          if (jobSHSDetails[index].checked === true) {
+            shsDetailsArray.push(jobSHSDetails[index].value);
+          }
+        }
+        if (shsDetailsArray.length === 0) {
+          // UNDECIDED
+        } else if (shsDetailsArray.length === 1) {
+          output += `No To ${shsDetailsArray[0]}\n`;
+        } else {
+          let newLine = 'No To ';
+          for (let index = 0; index < shsDetailsArray.length; index++) {
+            if (index === shsDetailsArray.length - 1) {
+              newLine += `And ${shsDetailsArray[index]}\n`;
+            } else {
+              newLine += `${shsDetailsArray[index]}, `;
+            }
+          }
+          output += `${newLine}`;
+        }
+
+        // IP Connected:
+
+        // STBH Ran:
+
+        // CSAT Explained:
+
+        // Reconciled:
+
+        // IP And STBH Pictures:
+
+        // Notes:
+
+        // Other:
+
+        // Other Pictures:
+
+        // Other Files:
+
+        // Anything Else:
+
+        console.log(output);
+        return output;
+      }
+
+      submitButton.addEventListener('click', createOutputText);
+    </script>
+  </body>
+</html>
